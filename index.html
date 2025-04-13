@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Analysis Data</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<body>
+    <nav class="navbar is-primary">
+        <div class="navbar-brand"></div>
+            <h1 class="navbar-item is-size-4 has-text-weight-bold">Health Analysis Census</h1>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-end">
+                <a href="./index.html" id="home" class="navbar-item has-text-weight-semibold">Home</a>
+                <a href="./health_contact.html" id="contact" class="navbar-item has-text-weight-semibold">Contact Us</a>
+                <div class="navbar-item">
+                    <input type="text" id="conditionInput" class="input is-rounded" placeholder="Enter a health condition">
+                </div>
+                <div class="navbar-item">
+                    <button id="btnSearch" class="button is-light is-rounded">Search</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+            <div class="box">
+                <h1 class="title has-text-centered">Healthcare Data Analysis</h1>
+                <form>
+                    <div class="field">
+                        <label class="label" for="name">Name:</label>
+                        <div class="control">
+                            <input type="text" id="name" class="input is-rounded" placeholder="Enter your name">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Gender:</label>
+                        <div class="control">
+                            <label class="radio">
+                                <input type="radio" name="gender" id="male" value="Male">
+                                Male
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="gender" id="female" value="Female">
+                                Female
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label" for="age">Age:</label>
+                        <div class="control">
+                            <input type="number" id="age" class="input is-rounded" placeholder="Enter your age">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label" for="condition">Condition:</label>
+                        <div class="control">
+                            <div class="select is-rounded">
+                                <select id="condition">
+                                    <option value="">Select condition</option>
+                                    <option value="Diabetes">Diabetes</option>
+                                    <option value="Thyroid">Thyroid</option>
+                                    <option value="High Blood Pressure">High Blood Pressure</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control">
+                            <button id="addPatient" class="button is-success is-fullwidth">Add Patient</button>
+                        </div>
+                    </div>
+                </form>
+
+                <h2 class="title is-4 has-text-centered mt-5">Analysis Report</h2>
+                <div id="report" class="content"></div>
+            </div>
+
+            <div class="box mt-5">
+                <h2 class="title is-5 has-text-centered">Search Results</h2>
+                <div id="result" class="content"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>&copy; 2023 Health Analysis Census. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./health_analysis.js"></script>
+</body>
+</html>
