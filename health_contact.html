@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Navbar -->
+    <nav class="bg-blue-600 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="./index.html" class="text-white text-xl font-bold">
+                Health Analysis Census
+            </a>
+            <div class="hidden md:flex space-x-4">
+                <a href="./index.html" class="text-white hover:text-gray-200" id="home">Home</a>
+                <a href="./health_contact.html" class="text-white hover:text-gray-200" id="contact">Contact Us</a>
+            </div>
+            <button class="md:hidden text-white" id="mobile-menu-button">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="md:hidden hidden" id="mobile-menu">
+            <a href="./index.html" class="block text-white hover:text-gray-200 px-4 py-2" id="home">Home</a>
+            <a href="./health_contact.html" class="block text-white hover:text-gray-200 px-4 py-2" id="contact">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-center mb-4">Contact Us</h1>
+        <p class="text-center text-gray-600 mb-8">
+            Feel free to contact us to know more about your conditions and for treatment methods.
+        </p>
+        <div class="max-w-xl mx-auto">
+            <form id="contactForm" class="bg-white shadow-md rounded px-8 pt-6 pb-8">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Name</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline" 
+                                 type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline" 
+                                 type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="condition">Condition</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline" 
+                                 type="text" id="condition" name="condition" placeholder="Your Condition" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="message">Message</label>
+                    <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline" 
+                                        id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <div class="flex items-center justify-center">
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" 
+                                    type="submit" onclick="thankyou()">Submit</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-4">
+        <div class="text-center text-gray-600">
+            <p>&copy; 2023 Health Analysis Census. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Active page highlight
+        document.addEventListener('DOMContentLoaded', function () {
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                const linkPage = link.href.split('/').pop();
+                if (linkPage === currentPage) {
+                    link.classList.add('text-gray-200');
+                }
+            });
+        });
+
+        function thankyou() {
+            alert('Thank you for contacting us!');
+        }
+    </script>
+</body>
+</html>
